@@ -7,12 +7,54 @@ import { KineticOrb } from "@/components/shared/kinetic-orb";
 import { CursorGlow } from "@/components/shared/cursor-glow";
 import { MagneticButton } from "@/components/shared/magnetic-button";
 import { Button } from "@/components/ui/button";
-import { registerGsap, gsap } from "@/lib/gsap";
+import { registerGsap, gsap, splitTextToSpans } from "@/lib/gsap";
 import { useMounted } from "@/hooks/use-mounted";
+
+function useTypewriter(text: string, typeSpeed = 70, startDelay = 1500) {
+  const [value, setValue] = React.useState("");
+  const mounted = useMounted();
+
+  React.useEffect(() => {
+    if (!mounted) return;
+    let i = 0;
+    let timer = 0;
+
+    const tick = () => {
+      i += 1;
+      setValue(text.slice(0, i));
+      if (i < text.length) {
+        timer = window.setTimeout(tick, typeSpeed);
+      }
+    };
+
+    timer = window.setTimeout(tick, startDelay);
+    return () => window.clearTimeout(timer);
+  }, [text, typeSpeed, startDelay, mounted]);
+
+  return value;
+}
+
+function CharSplit({ label }: { label: string }) {
+  return (
+    <>
+      {label.split("").map((char, i) => (
+        <span
+          key={i}
+          data-hero-char
+          className="inline-block will-change-transform"
+          aria-hidden
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </>
+  );
+}
 
 export function HeroSection() {
   const mounted = useMounted();
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const typed = useTypewriter(siteConfig.role);
 
   React.useEffect(() => {
     if (!mounted || !containerRef.current) return;
@@ -24,25 +66,29 @@ export function HeroSection() {
     const el = containerRef.current;
     const kicker = el.querySelector("[data-hero-kicker]");
     const heading = el.querySelector("[data-hero-heading]");
+    const chars = el.querySelectorAll("[data-hero-char]");
     const sub = el.querySelector("[data-hero-sub]");
     const pills = el.querySelectorAll("[data-hero-pill]");
     const tagline = el.querySelector("[data-hero-tagline]");
     const cta = el.querySelectorAll("[data-hero-cta]");
     const orb = el.querySelector("[data-hero-orb]");
+    const scroll = el.querySelector("[data-hero-scroll]");
 
-    [kicker, heading, sub, pills, tagline, cta, orb].forEach((t) => {
+    [kicker, heading, sub, pills, tagline, cta, orb, scroll].forEach((t) => {
       if (t) {
         gsap.set(t, { opacity: 0, y: 38, filter: "blur(8px)" });
       }
     });
+    gsap.set(chars, { opacity: 0, y: 16, filter: "blur(6px)" });
 
     tl.to(kicker, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" })
-      .to(heading, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.75, ease: "power3.out" }, "-=0.55")
+      .to(chars, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.75, stagger: 0.045, ease: "power3.out" }, "-=0.55")
       .to(sub, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" }, "-=0.55")
       .to(pills, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, stagger: 0.1, ease: "power3.out" }, "-=0.55")
       .to(tagline, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.65, ease: "power3.out" }, "-=0.35")
       .to(cta, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, stagger: 0.12, ease: "power3.out" }, "-=0.35")
-      .to(orb, { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.4, ease: "power2.out" }, "-=1.2");
+      .to(orb, { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.4, ease: "power2.out" }, "-=1.2")
+      .to(scroll, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, "-=0.4");
 
     return () => {
       tl.kill();
@@ -71,15 +117,25 @@ export function HeroSection() {
             Open to opportunities
           </span>
 
-          <h1 data-hero-heading className="font-display text-5xl font-bold leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl">
-            Hi, I&apos;m <span className="text-gradient">Kamal B.C.</span>
+          <h1
+            data-hero-heading
+            className="font-display text-5xl font-bold leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl"
+          >
+            Hi, I&apos;m{" "}
+            <span data-hero-orb className="text-gradient">
+              <span aria-hidden className="block">
+                <CharSplit label={siteConfig.name} />
+              </span>
+              <span className="sr-only">{siteConfig.name}</span>
+            </span>
           </h1>
 
-          <p data-hero-sub className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-            {siteConfig.role}
+          <p data-hero-sub className="flex items-center font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            <span>{typed}</span>
+            <span className="ml-0.5 inline-block h-[1em] w-[2px] translate-y-[0.12em] rounded-sm bg-primary" aria-hidden />
           </p>
 
-          <div data-hero-sub className="flex flex-wrap gap-2">
+          <div data-hero-pills className="flex flex-wrap gap-2">
             {["React", "Next.js", "Node.js", "AI"].map((pill) => (
               <span
                 key={pill}
@@ -96,7 +152,7 @@ export function HeroSection() {
           </p>
 
           <div className="mt-2 flex flex-wrap items-center gap-3">
-            <MagneticButton>
+            <MagneticButton data-hero-cta>
               <Button asChild size="lg">
                 <a href="#projects">
                   <ExternalLink className="mr-1" />
@@ -105,7 +161,7 @@ export function HeroSection() {
               </Button>
             </MagneticButton>
 
-            <MagneticButton>
+            <MagneticButton data-hero-cta>
               <Button asChild variant="outline" size="lg">
                 <a href={siteConfig.resumeUrl} download>
                   <Download className="mr-1" />
@@ -133,7 +189,10 @@ export function HeroSection() {
         </div>
       </div>
 
-      <MagneticButton className="absolute inset-x-0 bottom-10 z-10 mx-auto flex w-fit">
+      <MagneticButton
+        data-hero-scroll
+        className="absolute inset-x-0 bottom-10 z-10 mx-auto flex w-fit"
+      >
         <a
           href="#about"
           className="rounded-full border border-white/10 bg-white/[0.04] p-3 text-muted-foreground backdrop-blur-sm transition-colors hover:text-primary"

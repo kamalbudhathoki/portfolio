@@ -88,6 +88,41 @@
   }
 }
 
+@keyframes aurora {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: rotate(90deg) scale(1.15);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: rotate(180deg) scale(1);
+  }
+}
+
+.animated-gradient {
+  background: conic-gradient(
+    from 0deg,
+    rgba(110, 231, 249, 0.16) 0deg,
+    rgba(139, 92, 246, 0.1) 60deg,
+    rgba(59, 130, 246, 0.14) 120deg,
+    rgba(139, 92, 246, 0.1) 200deg,
+    rgba(110, 231, 249, 0.16) 280deg,
+    rgba(110, 231, 249, 0.16) 360deg
+  );
+  animation: aurora 18s ease-in-out infinite;
+  will-change: background-position, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-gradient {
+    animation: none;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
