@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#120b20"/>
+      <stop offset="100%" stop-color="#050816"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="60%" stop-color="#E879F9"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <circle cx="200" cy="140" r="230" fill="#8B5CF6" opacity="0.09"/>
+  <circle cx="780" cy="500" r="220" fill="#E879F9" opacity="0.07"/>
+  <rect x="70" y="70" width="560" height="460" rx="20" fill="white" opacity="0.05"/>
+  <rect x="660" y="70" width="230" height="460" rx="20" fill="none" stroke="url(#accent)" stroke-opacity="0.45" stroke-width="1.5"/>
+  <circle cx="110" cy="120" r="22" fill="url(#accent)" opacity="0.8"/>
+  <rect x="150" y="108" width="200" height="24" rx="12" fill="white" opacity="0.12"/>
+  <rect x="100" y="200" width="480" height="70" rx="12" fill="white" opacity="0.07"/>
+  <rect x="100" y="300" width="480" height="70" rx="12" fill="white" opacity="0.07"/>
+  <rect x="100" y="400" width="480" height="70" rx="12" fill="white" opacity="0.07"/>
+  <rect x="700" y="120" width="150" height="14" rx="7" fill="url(#accent)" opacity="0.55"/>
+  <rect x="700" y="160" width="110" height="14" rx="7" fill="white" opacity="0.12"/>
+</svg>
