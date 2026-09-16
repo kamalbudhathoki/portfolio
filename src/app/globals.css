@@ -195,6 +195,43 @@ body {
   mask-image: linear-gradient(to bottom, transparent, black 12%, black 82%, transparent);
 }
 
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.bento-anim-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--border-angle),
+    rgba(110, 231, 249, 0) 0deg,
+    rgba(110, 231, 249, 0.8) 45deg,
+    rgba(139, 92, 246, 0.8) 130deg,
+    rgba(59, 130, 246, 0.8) 210deg,
+    rgba(110, 231, 249, 0) 300deg
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: border-rotate 7s linear infinite;
+  will-change: --border-angle;
+}
+
+@keyframes border-rotate {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   [data-animate="fade-up"],
   [data-animate="fade-slide-left"],
