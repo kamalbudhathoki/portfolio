@@ -195,6 +195,17 @@ body {
   mask-image: linear-gradient(to bottom, transparent, black 12%, black 82%, transparent);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate="fade-up"],
+  [data-animate="fade-slide-left"],
+  [data-animate="fade-slide-right"],
+  [data-animate="card-lift"],
+  [data-animate="scale-in"] {
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -7,7 +7,7 @@ import { KineticOrb } from "@/components/shared/kinetic-orb";
 import { CursorGlow } from "@/components/shared/cursor-glow";
 import { MagneticButton } from "@/components/shared/magnetic-button";
 import { Button } from "@/components/ui/button";
-import { registerGsap, gsap, splitTextToSpans } from "@/lib/gsap";
+import { registerGsap, gsap } from "@/lib/gsap";
 import { useMounted } from "@/hooks/use-mounted";
 
 function useTypewriter(text: string, typeSpeed = 70, startDelay = 1500) {
@@ -102,7 +102,12 @@ export function HeroSection() {
     >
       <CursorGlow />
 
-      <div aria-hidden className="grid-lines absolute inset-0 z-0" />
+      <div
+        aria-hidden
+        data-animate="parallax"
+        data-animate-y="80"
+        className="grid-lines absolute inset-0 z-0"
+      />
 
       <div
         ref={containerRef}

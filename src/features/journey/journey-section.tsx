@@ -3,7 +3,6 @@
 import * as React from "react";
 import { journeySteps } from "@/constants/journey";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { Reveal } from "@/components/shared/reveal";
 import { cn } from "@/lib/utils";
 
 const stepColors = [
@@ -38,51 +37,54 @@ export function JourneySection() {
         <div className="relative">
           <div
             aria-hidden
-            className="absolute left-5 top-0 h-full w-px bg-gradient-to-b from-primary/60 via-secondary/50 to-accent/30 md:left-1/2 md:-translate-x-1/2"
+            data-animate="line-draw"
+            className="absolute left-5 top-0 h-full w-px origin-top bg-gradient-to-b from-primary/60 via-secondary/50 to-accent/30 md:left-1/2 md:-translate-x-1/2"
           />
 
           <div className="flex flex-col gap-10 md:gap-14">
             {journeySteps.map((step, i) => (
-              <Reveal key={step.id} delay={0.05} y={40}>
-                <div className="relative md:grid md:grid-cols-2 md:gap-0">
-                  <div className="absolute left-5 top-1 z-10 -translate-x-1/2 md:left-1/2" aria-hidden>
-                    <span
-                      className={cn(
-                        "flex size-10 items-center justify-center rounded-full border font-display text-sm font-bold shadow-lg",
-                        stepColors[i % stepColors.length],
-                      )}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-
-                  <div
+              <div key={step.id} className="relative md:grid md:grid-cols-2 md:gap-0">
+                <div className="absolute left-5 top-1 z-10 -translate-x-1/2 md:left-1/2" aria-hidden>
+                  <span
+                    data-animate="scale-in"
+                    data-animate-delay={String((i % 3) * 0.07)}
                     className={cn(
-                      "pl-14 md:pl-0",
-                      isEven(i) ? "md:col-start-1 md:pr-14 md:text-right" : "md:col-start-2 md:pl-14",
+                      "flex size-10 items-center justify-center rounded-full border font-display text-sm font-bold shadow-lg",
+                      stepColors[i % stepColors.length],
                     )}
                   >
-                    <div className="group inline-flex max-w-lg flex-col gap-3 text-left rounded-2xl border border-white/10 bg-card/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:bg-card/80">
-                      <div className="flex items-center gap-3 md:justify-start">
-                        <span
-                          className={cn(
-                            "flex size-9 items-center justify-center rounded-lg",
-                            stepColors[i % stepColors.length],
-                          )}
-                        >
-                          <step.icon className="size-4" aria-hidden />
-                        </span>
-                        <h3 className="font-display text-lg font-semibold tracking-tight text-white">
-                          {step.title}
-                        </h3>
-                      </div>
-                      <p className="text-sm leading-relaxed text-muted-foreground">
-                        {step.description}
-                      </p>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                <div
+                  data-animate={isEven(i) ? "fade-slide-left" : "fade-slide-right"}
+                  data-animate-delay="0.05"
+                  className={cn(
+                    "pl-14 md:pl-0",
+                    isEven(i) ? "md:col-start-1 md:pr-14 md:text-right" : "md:col-start-2 md:pl-14",
+                  )}
+                >
+                  <div className="group inline-flex max-w-lg flex-col gap-3 text-left rounded-2xl border border-white/10 bg-card/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:bg-card/80">
+                    <div className="flex items-center gap-3 md:justify-start">
+                      <span
+                        className={cn(
+                          "flex size-9 items-center justify-center rounded-lg",
+                          stepColors[i % stepColors.length],
+                        )}
+                      >
+                        <step.icon className="size-4" aria-hidden />
+                      </span>
+                      <h3 className="font-display text-lg font-semibold tracking-tight text-white">
+                        {step.title}
+                      </h3>
                     </div>
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {step.description}
+                    </p>
                   </div>
                 </div>
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>

@@ -8,10 +8,12 @@ import { ProjectsSection } from "@/features/projects/projects-section";
 import { ExperienceSection } from "@/features/experience/experience-section";
 import { JourneySection } from "@/features/journey/journey-section";
 import { ContactSection } from "@/features/contact/contact-section";
+import { ScrollAnimations } from "@/components/shared/scroll-animations";
 
 export default function HomePage() {
   return (
     <>
+      <ScrollAnimations />
       <Navbar />
       <main id="main">
         <HeroSection />

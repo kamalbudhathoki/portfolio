@@ -4,7 +4,6 @@ import * as React from "react";
 import { contactLinks } from "@/constants/contact";
 import { ContactForm } from "./contact-form";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { Reveal } from "@/components/shared/reveal";
 
 export function ContactSection() {
   return (
@@ -22,7 +21,7 @@ export function ContactSection() {
           align="center"
         />
 
-        <Reveal>
+        <div data-animate="card-lift">
           <div className="glass grid grid-cols-1 gap-8 overflow-hidden rounded-2xl p-6 md:grid-cols-5 md:p-10">
             <div className="flex flex-col gap-8 md:col-span-2">
               <div>
@@ -35,7 +34,7 @@ export function ContactSection() {
                 </p>
               </div>
 
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-3" data-animate="stagger" data-animate-stagger="0.06">
                 {contactLinks.map((link) => (
                   <li key={link.label}>
                     <a
@@ -57,7 +56,7 @@ export function ContactSection() {
               </ul>
             </div>
 
-            <div className="md:col-span-3">
+            <div data-animate="fade-up" data-animate-delay="0.1" className="relative md:col-span-3">
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 rounded-full opacity-40 blur-3xl"
@@ -68,7 +67,7 @@ export function ContactSection() {
               <ContactForm />
             </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

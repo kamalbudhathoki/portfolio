@@ -4,7 +4,6 @@ import * as React from "react";
 import { MapPin, Check } from "lucide-react";
 import { experienceItems } from "@/constants/experience";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { Reveal } from "@/components/shared/reveal";
 import { Badge } from "@/components/ui/badge";
 
 export function ExperienceSection() {
@@ -26,18 +25,20 @@ export function ExperienceSection() {
         <div className="relative ml-4 md:ml-0">
           <div
             aria-hidden
-            className="absolute bottom-3 left-4 top-3 w-px bg-gradient-to-b from-primary/50 via-secondary/40 to-accent/20"
+            data-animate="line-draw"
+            className="absolute bottom-3 left-4 top-3 w-px origin-top bg-gradient-to-b from-primary/50 via-secondary/40 to-accent/20"
           />
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-10" data-animate="stagger" data-animate-stagger="0.12">
             {experienceItems.map((item, i) => (
-              <Reveal key={item.id} delay={i * 0.1}>
-                <div className="relative pl-12">
-                  <div
-                    className="absolute left-0 top-1.5 size-8 rounded-full border border-white/10 bg-card/90"
-                    aria-hidden
-                  >
-                    <span className="absolute inset-[10px] rounded-full bg-gradient-to-br from-primary to-secondary" />
-                  </div>
+              <div key={item.id} className="relative pl-12">
+                <div
+                  data-animate="scale-in"
+                  data-animate-delay={String(i * 0.08)}
+                  className="absolute left-0 top-1.5 size-8 rounded-full border border-white/10 bg-card/90"
+                  aria-hidden
+                >
+                  <span className="absolute inset-[10px] rounded-full bg-gradient-to-br from-primary to-secondary" />
+                </div>
 
                   <div className="group rounded-2xl border border-white/10 bg-card/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:bg-card/80 md:p-7">
                     <div className="flex flex-wrap items-start justify-between gap-3">
@@ -78,8 +79,7 @@ export function ExperienceSection() {
                     </div>
                   </div>
                 </div>
-              </Reveal>
-            ))}
+              ))}
           </div>
         </div>
       </div>

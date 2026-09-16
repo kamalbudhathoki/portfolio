@@ -78,6 +78,8 @@ export function SkillsSection() {
                           aria-label={`${skill.name} proficiency`}
                         >
                           <div
+                            data-animate="progress"
+                            data-progress-target={skill.level}
                             className={cn(
                               "absolute inset-y-0 left-0 rounded-full bg-gradient-to-r",
                               cat.accent === "primary" && "from-primary/80 to-primary/40",

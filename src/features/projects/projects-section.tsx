@@ -43,13 +43,19 @@ export function ProjectsSection() {
                       project.gradient,
                     )}
                   />
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} screenshot`}
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
+                  <div
+                    data-animate="parallax"
+                    data-animate-y="18"
+                    className="absolute bottom-[-10%] left-0 right-0 top-[-10%]"
+                  >
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} screenshot`}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </div>
                   <motion.div
                     variants={{ rest: { opacity: 0, y: 8 }, hover: { opacity: 1, y: 0 } }}
                     transition={{ duration: 0.25 }}
