@@ -20,5 +20,5 @@ export const siteConfig = {
   location: "Nepal",
   github: "https://github.com/kamalbc",
   linkedin: "https://www.linkedin.com/in/kamalbhandari/",
-  resumeUrl: "/Kamal-BC-Resume.pdf",
+  resumeUrl: "/resume.pdf",
 } as const;

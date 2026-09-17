@@ -1,5 +1,5 @@
 import { Mail, Phone } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/shared/brand-icons";
+import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import { siteConfig } from "./site";
 import type { ContactLink } from "@/types";
 

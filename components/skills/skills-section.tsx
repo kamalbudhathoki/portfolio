@@ -2,10 +2,10 @@
 
 import * as React from "react";
 import { skillCategories } from "@/constants/skills";
-import { SectionHeading } from "@/components/shared/section-heading";
-import { Reveal } from "@/components/shared/reveal";
-import { TiltCard } from "@/components/shared/tilt-card";
-import { Counter } from "@/components/shared/counter";
+import { SectionHeading } from "@/components/section-heading";
+import { Reveal } from "@/features/animations/reveal";
+import { TiltCard } from "@/features/animations/tilt-card";
+import { Counter } from "@/features/animations/counter";
 import { cn } from "@/lib/utils";
 
 const accentRing: Record<string, string> = {

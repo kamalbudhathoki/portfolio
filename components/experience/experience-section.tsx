@@ -3,7 +3,7 @@
 import * as React from "react";
 import { MapPin, Check } from "lucide-react";
 import { experienceItems } from "@/constants/experience";
-import { SectionHeading } from "@/components/shared/section-heading";
+import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 
 export function ExperienceSection() {

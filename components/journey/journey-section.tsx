@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { journeySteps } from "@/constants/journey";
-import { SectionHeading } from "@/components/shared/section-heading";
+import { SectionHeading } from "@/components/section-heading";
 import { cn } from "@/lib/utils";
 
 const stepColors = [

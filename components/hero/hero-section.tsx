@@ -3,9 +3,9 @@
 import * as React from "react";
 import { ArrowDown, ExternalLink, Download } from "lucide-react";
 import { siteConfig } from "@/constants/nav";
-import { KineticOrb } from "@/components/shared/kinetic-orb";
-import { CursorGlow } from "@/components/shared/cursor-glow";
-import { MagneticButton } from "@/components/shared/magnetic-button";
+import { KineticOrb } from "@/features/animations/kinetic-orb";
+import { CursorGlow } from "@/features/animations/cursor-glow";
+import { MagneticButton } from "@/features/animations/magnetic-button";
 import { Button } from "@/components/ui/button";
 import { registerGsap, gsap } from "@/lib/gsap";
 import { useMounted } from "@/hooks/use-mounted";

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { NeuralBg } from "@/components/shared/neural-bg";
+import { NeuralBg } from "@/features/animations/neural-bg";
 import { siteConfig } from "@/constants/site";
 
 const geistSans = Geist({

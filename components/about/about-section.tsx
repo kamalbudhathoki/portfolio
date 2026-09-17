@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import { GraduationCap, Code2, BrainCircuit } from "lucide-react";
-import { SectionHeading } from "@/components/shared/section-heading";
-import { Reveal } from "@/components/shared/reveal";
+import { SectionHeading } from "@/components/section-heading";
+import { Reveal } from "@/features/animations/reveal";
 
 const timeline = [
   {

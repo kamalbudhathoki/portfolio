@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { Reveal } from "@/components/shared/reveal";
+import { Reveal } from "@/features/animations/reveal";
 
 interface SectionHeadingProps {
   kicker: string;

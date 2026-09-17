@@ -2,10 +2,10 @@
 
 import * as React from "react";
 import { Heart, Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/shared/brand-icons";
+import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import { navItems, siteConfig } from "@/constants/nav";
 import { Separator } from "@/components/ui/separator";
-import { Reveal } from "@/components/shared/reveal";
+import { Reveal } from "@/features/animations/reveal";
 
 const socialLinks = [
   { href: siteConfig.github, icon: GithubIcon, label: "GitHub" },

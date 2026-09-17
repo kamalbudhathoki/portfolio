@@ -3,10 +3,10 @@
 import * as React from "react";
 import Image from "next/image";
 import { ExternalLink, ArrowUpRight } from "lucide-react";
-import { GithubIcon } from "@/components/shared/brand-icons";
+import { GithubIcon } from "@/components/brand-icons";
 import { projects } from "@/constants/projects";
-import { SectionHeading } from "@/components/shared/section-heading";
-import { Reveal } from "@/components/shared/reveal";
+import { SectionHeading } from "@/components/section-heading";
+import { Reveal } from "@/features/animations/reveal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";

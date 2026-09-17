@@ -3,7 +3,7 @@
 import * as React from "react";
 import { contactLinks } from "@/constants/contact";
 import { ContactForm } from "./contact-form";
-import { SectionHeading } from "@/components/shared/section-heading";
+import { SectionHeading } from "@/components/section-heading";
 
 export function ContactSection() {
   return (

@@ -8,6 +8,6 @@ export const siteConfig = {
   location: "Nepal",
   github: "https://github.com/kamalbc",
   linkedin: "https://www.linkedin.com/in/kamalbc/",
-  resumeUrl: "/Kamal-BC-Resume.pdf",
+  resumeUrl: "/resume.pdf",
   builtWith: ["Next.js", "GSAP", "Tailwind CSS"],
 } as const;
