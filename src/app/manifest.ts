@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Kamal B.C. — AI Engineer & Full-Stack Developer",
+    name: "Kamal B.C. — AI Engineer",
     short_name: "Kamal B.C.",
     description:
-      "Portfolio of Kamal B.C., a Computer Engineering graduate transitioning into AI Engineering.",
+      "Portfolio of Kamal B.C., an AI Engineer building intelligent software with AI on strong full-stack engineering foundations.",
     start_url: "/",
     display: "standalone",
     background_color: "#050816",

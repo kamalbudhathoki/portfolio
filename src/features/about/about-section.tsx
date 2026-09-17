@@ -14,9 +14,9 @@ const timeline = [
   },
   {
     icon: Code2,
-    title: "MERN & Full-Stack Specialist",
+    title: "Full-Stack Engineering Foundation",
     description:
-      "Designed and shipped production-grade applications with React, Next.js, Node.js, MongoDB and PostgreSQL — from initial design to deployment.",
+      "Designed and shipped production-grade applications with React, Next.js, Node.js, MongoDB and PostgreSQL — the full-stack foundation behind the AI products I build.",
   },
   {
     icon: BrainCircuit,

@@ -141,7 +141,7 @@ export function HeroSection() {
           </p>
 
           <div data-hero-pills className="flex flex-wrap gap-2">
-            {["React", "Next.js", "Node.js", "AI"].map((pill) => (
+            {["AI", "React", "Next.js", "Node.js"].map((pill) => (
               <span
                 key={pill}
                 data-hero-pill
@@ -181,10 +181,23 @@ export function HeroSection() {
           data-hero-orb
           className="relative mx-auto flex items-center justify-center md:justify-end"
         >
-          <KineticOrb
-            className="size-[280px] sm:size-[340px] lg:size-[420px]"
-            size={420}
-          />
+          <div className="relative">
+            <KineticOrb
+              className="size-[280px] sm:size-[340px] lg:size-[420px]"
+              size={420}
+            />
+
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -bottom-4 left-1/2 hidden w-max -translate-x-1/2 items-center gap-1.5 rounded-lg border border-white/10 bg-card/70 px-3.5 py-2 font-mono text-[11px] leading-none backdrop-blur-md sm:flex"
+            >
+              <span className="text-primary">&gt;_</span>
+              <span className="text-muted-foreground">ai</span>
+              <span className="text-foreground/80">.engine(</span>
+              <span className="text-secondary">fullStack</span>
+              <span className="text-foreground/80">)</span>
+            </div>
+          </div>
 
           <div className="absolute inset-0 mx-auto flex items-center justify-center">
             <span className="font-display text-7xl font-bold text-gradient opacity-20 blur-sm select-none sm:text-8xl lg:text-9xl">

@@ -12,9 +12,9 @@ export const navItems: NavItem[] = [
 
 export const siteConfig = {
   name: "Kamal B.C.",
-  role: "AI Engineer in Progress",
+  role: "AI Engineer",
   tagline:
-    "Computer Engineering graduate building intelligent, full-stack applications with React, Next.js and modern AI.",
+    "Building intelligent software with AI while leveraging strong full-stack engineering foundations.",
   email: "kamalbc.dev@gmail.com",
   phone: "+977-9800000000",
   location: "Nepal",
